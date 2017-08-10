@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin-left: 50px;
+}
+.error-msg {
+  color: #a94442;
+}
+.fix-error-icon {
+  top: 27px;
+}
+.control-label.required:after { 
+  color: #d00;
+  position: absolute;
+  margin-left: 5px;
+  top:7px;
+}
+.error{
+    color: #a94442;
+}

@@ -1,3 +1,68 @@
-<h1>
-  {{title}}
-</h1>
+<form class="form-horizontal" [formGroup]="form">
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="name" class="control-label required">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <app-test [displayError]="isFieldValid('name')" errorMsg="Please inform your name">
+      </app-test>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="email" class="control-label required">Email</label>
+      <input type="text" id="email" class="form-control" formControlName="email">
+      <!--<app-test [displayError]="isFieldValid('email')" errorMsg="Please inform your email or phone">
+      </app-test>-->
+      <div class="form-text error" *ngIf="form.controls.email.touched">
+      <div *ngIf="form.hasError('isRequired')">Email or Phone is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="phone" class="control-label required">phone</label>
+      <input type="text" id="phone" class="form-control" formControlName="phone">
+      <!--<app-test [displayError]="isFieldValid('phone')" errorMsg="Please inform your phone or email">
+      </app-test>-->
+      <div class="form-text error" *ngIf="form.controls.phone.touched">
+      <div *ngIf="form.hasError('isRequired')">Email or Phone is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+  <label>I agree terms and conditions</label>
+   <input type="radio" value="yes" name="terms" formControlName="terms" [(ngModel)]="radio" (change)="onClick()">Yes
+   <input type="radio" value="no" name="terms" formControlName="terms" [(ngModel)]="radio" (change)="onClick()">No
+   <app-test [displayError]="isFieldValid('terms')" errorMsg="Please select one">
+      </app-test>
+</div>
+ <div *ngIf="showId" class="form-group">
+    <div class="col-sm-12">
+      <label for="address" class="control-label required">address</label>
+      <input type="text" id="address" class="form-control" formControlName="address">
+      <app-test [displayError]="isFieldValid('address')" errorMsg="Please inform your address">
+      </app-test>
+    </div>
+  </div>
+
+<div *ngIf="showId" class="form-group">
+    <div class="col-sm-12">
+      <label for="state" class="control-label required">state</label>
+      <input type="text" id="state" class="form-control" formControlName="state">
+      <app-test [displayError]="isFieldValid('state')" errorMsg="Please inform your state">
+      </app-test>
+    </div>
+  </div>
+  <div *ngIf="showId" class="form-group">
+    <div class="col-sm-12">
+      <label for="zipcode" class="control-label required">zipcode</label>
+      <input type="text" id="zipcode" class="form-control" formControlName="zipcode">
+      <app-test [displayError]="isFieldValid('zipcode')" errorMsg="Please inform your zipcode">
+      </app-test>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  <button class="btn" (click)="reset()">Reset</button>
+</form>
