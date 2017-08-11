@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TestComponent } from 'app/test/test.component';
-import { Userinterface } from './userinterface';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +12,7 @@ export class AppComponent {
   radio: any;
   showId: boolean = false;
 
-  conditions = {
-    condition_type: 'terms'
-  }
+  
 
   constructor(private formBuilder: FormBuilder) { }
 
